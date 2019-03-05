@@ -1,0 +1,67 @@
+﻿<div class="qveventlogconnectdialogcontainer">
+	<div class="qveventlogconnectdialog" qv-global-escape="onEscape()">
+		<h1 q-translation="{{titleText}}"></h1>
+		
+		<h2>Connector Description</h2>
+		<div>{{info}}</div>
+
+		<div class="main">
+			<input style="width:98%" type="text" ng-model="name_connect" placeholder="Имя подключения" class="name_connect"/>
+
+			<!--
+			<div style="overflow: hidden;">
+				<label class="lbl_input" for="input_cb">Клиент/Сервер:</label>
+				<span class="span_input">
+					<input id="input_cb" type="checkbox" ng-model="cb_isClient" value="value" checked>
+				</span>
+			</div>
+			-->
+
+			<div style="overflow: hidden;">
+				<div >
+					<div style="float: left;margin-top: 3px;">
+						<label class="lbl_input" for="input_cbServ">Клиент/Сервер:</label>
+						<span class="span_input">
+							<input id="input_cbServ" type="checkbox" ng-model="cb_isClient" value="value" checked>
+						</span>
+					</div>
+					<div style="float: right;margin-top: 3px;">
+						<label class="lbl_input" for="input_cbAuth">DomenAuth:</label>
+						<span class="span_input">
+							<input id="input_cbAuth" type="checkbox" ng-model="cb_isDomenAuth" value="value" checked>
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<div style="overflow:hidden;">
+				<label class="lbl_input lbl_text" for="path" ng-hide="cb_isClient">Путь</label>
+				<input id="path" type="text" ng-model="path" ng-hide="cb_isClient" placeholder="Путь" />
+
+				<label class="lbl_input lbl_text" for="server" ng-hide="!cb_isClient">Имя сервера</label>
+				<input id="server" type="text" ng-model="server" ng-hide="!cb_isClient" placeholder="Имя сервера" />
+
+				<label class="lbl_input lbl_text" for="database" ng-hide="!cb_isClient">Имя базы данных</label>
+				<input id="database" type="text" ng-model="database" ng-hide="!cb_isClient" placeholder="Имя базы данных" />
+				
+
+				<label class="lbl_input lbl_text" for="database" ng-hide="cb_isDomenAuth">Имя пользователя</label>
+				<input type="text" ng-model="userdb" ng-hide="cb_isDomenAuth" placeholder="Имя пользователя" />
+
+				
+				<label class="lbl_input lbl_text" for="database" ng-hide="cb_isDomenAuth">Пароль</label>
+				<input type="password" ng-model="passdb" ng-hide="cb_isDomenAuth" placeholder="Пароль" />
+
+				<label class="lbl_input lbl_text" for="database">Таблица Qlik View</label>
+				<input type="text" ng-model="table_qv" placeholder="Таблица Qlik View" />
+
+				<textarea rows="10" cols="49" ng-model="query" placeholder="Текст запроса"></textarea>
+			</div>
+		</div>
+
+		<div class="footer">
+			<button ng-click="onCancelClicked()">Cancel</button>
+			<button ng-click="onOKClicked()" ng-disabled="!isOkEnabled" q-translation="{{saveButtonText}}"></button>
+		</div>
+	</div>
+</div>
